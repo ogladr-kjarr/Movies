@@ -1,7 +1,9 @@
 package domain;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 
 public class Movie {
@@ -14,6 +16,8 @@ public class Movie {
     private final String overview;
     private final double popularity;
     private final LocalDate releaseDate;
+    private final int revenue;
+    private final int runtime;
     private final String status;
     private final String tagline;
     private final String title;
@@ -29,6 +33,8 @@ public class Movie {
                  final String overview,
                  final double popularity,
                  final LocalDate releaseDate,
+                 final int revenue,
+                 final int runtime,
                  final String status,
                  final String tagline,
                  final String title,
@@ -44,12 +50,37 @@ public class Movie {
         this.overview = overview;
         this.popularity = popularity;
         this.releaseDate = releaseDate;
+        this.revenue = revenue;
+        this.runtime = runtime;
         this.status = status;
         this.tagline = tagline;
         this.title = title;
         this.voteAverage = voteAverage;
         this.voteCount = voteCount;
         this.genres = genres;
+    }
+
+    public String getTitle(){
+        return title;
+    }
+    public int getRuntime(){
+        return runtime;
+    }
+
+    public int getRevenue(){
+        return revenue;
+    }
+
+    public boolean isAdult(){
+        return adult;
+    }
+
+    public boolean hasGenre(String targetGenre){
+        return genres.contains(targetGenre);
+    }
+
+    public List<String> getGenres(){
+        return new ArrayList<String>(genres);
     }
 
     @Override
@@ -67,6 +98,8 @@ public class Movie {
                 overview.equals(that.overview) &&
                 popularity == that.popularity &&
                 releaseDate.equals(that.releaseDate) &&
+                revenue == that.revenue &&
+                runtime == that.runtime &&
                 status.equals(that.status) &&
                 tagline.equals(that.tagline) &&
                 title.equals(that.title) &&
@@ -77,8 +110,8 @@ public class Movie {
 
     @Override
     public int hashCode(){
-        return Objects.hash(adult, budget, id, originalLanguage, originalTitle, overview, popularity, releaseDate, status,
-                tagline, title, voteAverage, voteCount, genres);
+        return Objects.hash(adult, budget, id, originalLanguage, originalTitle, overview, popularity, releaseDate,
+                revenue, runtime, status, tagline, title, voteAverage, voteCount, genres);
     }
 
     @Override
@@ -91,6 +124,8 @@ public class Movie {
                 ", Overview: " + overview +
                 ", Popularity: " + popularity +
                 ", Release Date: " + releaseDate +
+                ", Revenue: " + revenue +
+                ", Runtime: " + runtime +
                 ", Status: " + status +
                 ", Tag line: " + tagline +
                 ", Title: " + title +
