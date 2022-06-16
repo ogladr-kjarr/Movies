@@ -2,7 +2,8 @@
 
 This repo is a very basic use of Java to learn how to model objects as classes, create interfaces, use lambdas
 and method references, use JUnit, and to work with databases for storing and retrieving data.
-
+[edit] I was planning on creating a persistance interface and using JPA/Hibernate but they don't work with records, so 
+I'll leave it for now.
 # Data
 
 The data comes from the [Kaggle Movie Set](https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset), and has
