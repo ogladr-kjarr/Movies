@@ -2,7 +2,7 @@ library(readr)
 library(jsonlite)
 library(stringr)
 
-wd <- "~/repos/movies/src/main/resources/"
+wd <- "~/repos/learnjava/Movies/src/main/resources/"
 credits <- read_csv(str_c(wd, "credits.csv"))
 keywords <- read_csv(str_c(wd, "keywords.csv"))
 movies <- read_csv(str_c(wd, "movies_metadata.csv"))

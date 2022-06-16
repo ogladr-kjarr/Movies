@@ -3,8 +3,6 @@ import domain.MovieDataParser;
 
 import java.io.IOException;
 import java.util.Collections;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 import static java.util.Map.Entry.comparingByValue;
 

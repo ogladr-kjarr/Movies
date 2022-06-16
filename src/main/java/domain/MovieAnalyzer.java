@@ -13,11 +13,11 @@ public class MovieAnalyzer {
     }
 
     public List<Movie> moviesWithRuntimeGreaterThan(final int runtime){
-        return filterIntVariable(x -> x.getRuntime() > runtime);
+        return filterIntVariable(x -> x.runtime() > runtime);
     }
 
     public List<Movie> moviesWithRevenueGreaterThan(final int revenue){
-        return filterIntVariable(x -> x.getRevenue() > revenue);
+        return filterIntVariable(x -> x.revenue() > revenue);
     }
 
     private List<Movie> filterIntVariable(Predicate<Movie> movieFilter){
@@ -25,16 +25,16 @@ public class MovieAnalyzer {
     }
 
     public List<Movie> getAdultRatedMovies(){
-        return movies.stream().filter(Movie::isAdult).collect(Collectors.toList());
+        return movies.stream().filter(Movie::adult).collect(Collectors.toList());
     }
 
     public List<Movie> getMoviesWithGenre(final String targetGenre){
-        return movies.stream().filter(x -> x.hasGenre(targetGenre)).collect(Collectors.toList());
+        return movies.stream().filter(x -> x.genres().contains(targetGenre)).collect(Collectors.toList());
     }
 
     public Map<String, Long> getGenreCount(){
          return movies.stream()
-                .flatMap(x -> x.getGenres().stream())
+                .flatMap(x -> x.genres().stream())
                 .collect(Collectors.groupingBy(String::toString, Collectors.counting()));
 
     }
