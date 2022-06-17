@@ -1,24 +1,27 @@
 package domain;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
+import lombok.*;
 
-public record Movie(boolean adult,
-                    double budget,
-                    int id,
-                    String originalLanguage,
-                    String originalTitle,
-                    String overview,
-                    double popularity,
-                    LocalDate releaseDate,
-                    int revenue,
-                    int runtime,
-                    String status,
-                    String tagline,
-                    String title,
-                    double voteAverage,
-                    int voteCount,
-                    HashSet<String> genres){ }
+import java.time.LocalDate;
+import java.util.HashSet;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data public class Movie {
+    private boolean adult;
+    private double budget;
+    private int id;
+    private String originalLanguage;
+    private String originalTitle;
+    private String overview;
+    private double popularity;
+    private LocalDate releaseDate;
+    private int revenue;
+    private int runtime;
+    private String status;
+    private String tagline;
+    private String title;
+    private double voteAverage;
+    private int voteCount;
+    private HashSet<String> genres;
+}
